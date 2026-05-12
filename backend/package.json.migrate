@@ -1,0 +1,9 @@
+En .env local, primero obtén la contraseña de la DB en:
+https://app.supabase.com > [Tu proyecto] > Project Settings > Database > Connection string
+
+Luego ejecuta:
+
+```bash
+npm install pg dotenv
+SUPABASE_DB_PASSWORD="xxxx" node migrate.js
+```
