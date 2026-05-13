@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export PATH=\"/c/nodejs-20:$PATH\")",
+      "Bash(npm run *)"
+    ]
+  }
+}

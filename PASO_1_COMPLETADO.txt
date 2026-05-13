@@ -1,0 +1,86 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    ✅ PASO 1 COMPLETADO: Node.js 20                       ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+Fecha: 2026-05-11 20:45 UTC
+Estado: ✅ COMPLETADO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ LO QUE SE HIZO:
+
+1. Descargó Node.js v20.13.0 (zip portable)
+2. Extrajo a: C:\nodejs-20\
+3. Verificó: node --version → v20.13.0 ✅
+4. Limpió cache npm
+5. Instaló dependencias backend
+6. Instaló dependencias frontend
+7. Compiló backend → ✅ SUCCESS
+8. Compiló frontend → ✅ SUCCESS
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 VERIFICACIÓN:
+
+Backend:
+  ✅ Compiled successfully in 10.2s
+  ✅ TypeScript check: Finished in 21.1s
+  ✅ 5 endpoints generados:
+     • GET  /api/courses
+     • POST /api/courses
+     • PATCH /api/courses/[id]
+     • POST /api/courses/[id]/enroll
+     • GET  /api/courses/[id]/lessons
+
+Frontend:
+  ✅ Compiled successfully in 17.1s
+  ✅ TypeScript check: Finished in 18.0s
+  ✅ Páginas: / + _not-found
+  ✅ Middleware proxy activo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 PRÓXIMO: PASO 2 - Aplicar Migraciones en Supabase
+
+Lee: PASO_2_MIGRACIONES.txt
+
+O ejecuta directamente:
+  1. Ve a: https://app.supabase.com/projects
+  2. Selecciona tu proyecto
+  3. SQL Editor > "+ New Query"
+  4. Abre: backend/supabase/migrations/001_profiles.sql
+  5. Copia y pega el contenido
+  6. Ejecuta (▶ o Ctrl+Enter)
+  7. Repite con 002, 003, 004, 005, 006
+
+También puedes copiar TODO de SETUP_SUPABASE.md de una vez.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 NOTA IMPORTANTE:
+
+El Node.js está en: C:\nodejs-20\
+
+Si cierras y reabre una terminal nueva, necesitarás actualizar el PATH:
+  PowerShell: $env:PATH = "C:\nodejs-20;$env:PATH"
+  Bash: export PATH="/c/nodejs-20:$PATH"
+
+O instalar permanentemente vía winget (requiere admin).
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Estado de Fases:
+  ✅ Fase 0: Setup monorepo
+  ✅ Fase 1: Migraciones SQL (escritas)
+  ✅ Fase 2: Backend API (compilado)
+  ✅ PASO 1: Actualizar Node.js (COMPLETADO)
+  ⏳ PASO 2: Aplicar migraciones en Supabase
+  ⏳ PASO 3: Generar tipos TypeScript
+  ⏳ PASO 4: Instalar shadcn/ui
+  ⏳ PASO 5: Verificar que funciona
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¡Paso 1 listo! Continúa con Paso 2. 🚀

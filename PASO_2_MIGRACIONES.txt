@@ -1,0 +1,117 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              PASO 2: APLICAR MIGRACIONES SQL EN SUPABASE                  ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+El SQL COMPLETO para todas las migraciones está en SETUP_SUPABASE.md (líneas 32-418).
+
+⚡ RÁPIDO (2 opciones):
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OPCIÓN A: Copiar SETUP_SUPABASE.md completo
+
+1. Abre: https://app.supabase.com/projects
+2. Selecciona tu proyecto
+3. Ve a: SQL Editor (menú izquierdo)
+4. Haz clic: "+ New Query"
+5. En otra ventana abre: SETUP_SUPABASE.md
+6. Copia: TODO desde "## SQL a ejecutar" hasta el final
+7. Pega en Supabase
+8. Haz clic: "▶ Run" (o Ctrl+Enter)
+9. Espera a que compile (deberías ver: "✅ All success")
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OPCIÓN B: Copiar migraciones individuales (si A no funciona)
+
+Si el SQL completo da error, copia cada migración por separado:
+
+1. Abre Supabase SQL Editor
+2. Para cada archivo:
+
+   backend/supabase/migrations/001_profiles.sql
+   ↓ Copiar contenido
+   ↓ Pegar en Supabase
+   ↓ Ejecutar
+
+   Luego:
+   backend/supabase/migrations/002_categories.sql
+   (repetir proceso)
+
+   Luego:
+   backend/supabase/migrations/003_courses.sql
+   (repetir proceso)
+
+   Luego:
+   backend/supabase/migrations/004_lessons.sql
+   (repetir proceso)
+
+   Luego:
+   backend/supabase/migrations/005_enrollments.sql
+   (repetir proceso)
+
+   Finalmente:
+   backend/supabase/migrations/006_reviews.sql
+   (repetir proceso)
+
+3. Si cada uno tiene "✅ success", listo.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ VERIFICACIÓN (después de aplicar)
+
+Ve a: Table Editor (en Supabase, menú izquierdo)
+
+Deberías ver estas 6 tablas:
+  ✅ profiles
+  ✅ categories
+  ✅ courses
+  ✅ lessons
+  ✅ enrollments
+  ✅ reviews
+
+Si ves todas 6 → LISTO ✅
+Si faltan algunas → Problemas con el SQL (revisa los errores en el log)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  TROUBLESHOOTING
+
+Error: "function handle_new_user() already exists"
+  → Ignora este error, es normal si ejecutas dos veces
+
+Error: "relation profiles does not exist"
+  → 001_profiles.sql no se aplicó correctamente
+  → Intenta copiar el archivo individualmente (OPCIÓN B)
+
+Error: "syntax error at or near..."
+  → Hay un error de sintaxis SQL
+  → Copia el archivo individual que falla
+  → Revisa los comentarios
+
+Error: "permission denied"
+  → Necesitas permisos en la BD
+  → Usa un usuario con más permisos o contacta admin
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📍 ARCHIVOS A USAR
+
+Lee: backend/supabase/migrations/001_profiles.sql (y las otras 5)
+O: SETUP_SUPABASE.md (tiene todo concatenado)
+
+Y pega en: https://app.supabase.com > SQL Editor
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Una vez completado este paso, ejecuta:
+
+PASO 3: Generar tipos TypeScript
+  cd backend
+  supabase gen types typescript > types/database.ts
+  cp types/database.ts ../frontend/
+
+Luego PASO 4 y 5 en SIGUIENTE_PASO.txt
+

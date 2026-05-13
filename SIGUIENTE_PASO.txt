@@ -1,0 +1,186 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                          SIGUIENTE PASO - EdTech                           ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+El proyecto está 100% listo localmente. Ahora necesitas hacer 5 pasos para que
+funcione en Supabase.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔴 PASO 1: ACTUALIZAR NODE.JS (CRÍTICO - 10 min)
+
+   Tu Node.js actual: 16.20.0
+   Requerido: 20.9.0 o mayor
+
+   OPCIÓN A (Más fácil si tienes nvm):
+   ─────────────────────────────────
+   PowerShell:
+     nvm list available
+     nvm install 20
+     nvm use 20
+     node --version  # Verifica que sea v20.x.x
+
+   OPCIÓN B (Descargar directamente):
+   ──────────────────────────────────
+   1. Ve a https://nodejs.org/
+   2. Descarga LTS (v20.x o mayor)
+   3. Ejecuta el instalador
+   4. Reinicia todas las terminales
+   5. Verifica: node --version
+
+   OPCIÓN C (Volta - moderno):
+   ───────────────────────────
+   choco install volta
+   volta pin node@20
+
+   Después de actualizar:
+   ─────────────────────
+   npm cache clean --force
+   cd backend && npm install
+   cd ../frontend && npm install
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔴 PASO 2: APLICAR MIGRACIONES EN SUPABASE (CRÍTICO - 5 min)
+
+   1. Abre: https://app.supabase.com
+   2. Selecciona tu proyecto (vkizdtzdiberhsdqelja)
+   3. Ve a: SQL Editor (barra izquierda)
+   4. Haz clic: "+ New Query"
+   5. Lee: SETUP_SUPABASE.md (completo en ese archivo)
+   6. Copia: TODO el SQL (bloques 001-006)
+   7. Pega: En el editor
+   8. Ejecuta: ▶ Run (o Ctrl+Enter)
+   9. Verifica: Deberías ver 6 tablas en Table Editor
+
+   ⚠️  Si te falla algo, lee SETUP_SUPABASE.md para troubleshooting
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🟡 PASO 3: GENERAR TIPOS TYPESCRIPT (5 min)
+
+   Después de que las migraciones estén aplicadas:
+
+   Terminal (en edtech/):
+   ─────────────────────
+   cd backend
+   supabase gen types typescript --project-id vkizdtzdiberhsdqelja > types/database.ts
+
+   (Reemplaza 'vkizdtzdiberhsdqelja' con tu project-id de Supabase)
+
+   Luego copia a frontend:
+   ─────────────────────
+   cp backend/types/database.ts ../frontend/types/database.ts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🟡 PASO 4: INSTALAR SHADCN/UI (10 min)
+
+   Terminal (en edtech/frontend):
+   ──────────────────────────────
+   cd frontend
+   npx shadcn@latest init
+
+   Responde las preguntas:
+   ──────────────────────
+   ✔ Would you like to use TypeScript (recommended)? › Yes
+   ✔ Which style would you like to use? › Default
+   ✔ Which color would you like as the base color? › Slate
+   ✔ Are you using a CSS variables for colors? › Yes
+
+   Instala componentes necesarios:
+   ──────────────────────────────
+   npx shadcn-ui@latest add button input card select dialog badge
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ PASO 5: VERIFICAR QUE TODO FUNCIONA (5 min)
+
+   Terminal 1 (Backend):
+   ────────────────────
+   cd backend
+   npm run dev
+
+   Deberías ver: ▲ Next.js 14.x.x
+                 ready - started server on 0.0.0.0:3001
+
+   Prueba en otra terminal:
+   curl http://localhost:3001/api/courses
+
+   Deberías recibir: []  (array vacío, porque BD existe pero no hay datos)
+
+
+   Terminal 2 (Frontend):
+   ──────────────────────
+   cd frontend
+   npm run dev
+
+   Deberías ver: ▲ Next.js 14.x.x
+                 ready - started server on 0.0.0.0:3000
+
+   Abre navegador: http://localhost:3000
+   Deberías ver: La página default de Next.js
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 DESPUÉS DE ESTOS 5 PASOS:
+
+   ✅ Node.js actualizado a 20+
+   ✅ BD Supabase con 6 tablas
+   ✅ Tipos TypeScript generados
+   ✅ shadcn/ui instalado
+   ✅ Backend corriendo en 3001
+   ✅ Frontend corriendo en 3000
+
+   ENTONCES puedes empezar FASE 3: Crear páginas y componentes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 DOCUMENTACIÓN DE REFERENCIA:
+
+   • REQUIREMENTS.md       → Cómo actualizar Node.js
+   • SETUP_SUPABASE.md     → Cómo aplicar migraciones
+   • DATA_MODEL.md         → Qué tablas existen y por qué
+   • README.md             → Visión general
+   • INDEX.md              → Índice de todos los docs
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️  TIEMPO ESTIMADO: 45 minutos para los 5 pasos
+
+   1. Actualizar Node     → 10 min
+   2. Aplicar migraciones → 5 min
+   3. Generar tipos       → 5 min
+   4. shadcn/ui           → 10 min
+   5. Verificar           → 5 min
+   + Descargas            → 10 min
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿PREGUNTAS FRECUENTES?
+
+Q: ¿Qué hago si la migración falla?
+A: Lee SETUP_SUPABASE.md, sección "Troubleshooting"
+
+Q: ¿Cómo actualizo Node en Windows?
+A: Lee REQUIREMENTS.md, hay 3 opciones (nvm, descargar, Volta)
+
+Q: ¿Necesito hacer git commit?
+A: No, aún no. El código está listo pero sin git push.
+
+Q: ¿Qué pasa si npm install falla?
+A: Limpia cache: npm cache clean --force
+   Luego reinenta: npm install
+
+Q: ¿Dónde veo las credenciales de Supabase?
+A: backend/.env y frontend/.env (ya están ahí)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 READY? Empieza con el PASO 1: Actualizar Node.js
+
+   Lee REQUIREMENTS.md para instrucciones detalladas.
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                      ¡Vamos a hacer funcionar EdTech! 💪                  ║
+╚════════════════════════════════════════════════════════════════════════════╝

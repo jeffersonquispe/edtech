@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createClient, getAuthUser } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { mapPostgresError } from '@/lib/errors';
 
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
 
-  const { data: user } = await supabase.auth.getUser();
+  const { data: user } = await getAuthUser();
   if (!user.user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
