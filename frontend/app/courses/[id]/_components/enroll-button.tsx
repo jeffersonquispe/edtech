@@ -39,11 +39,15 @@ export default function EnrollButton({ courseId }: { courseId: string }) {
       <button
         onClick={handleEnroll}
         disabled={loading}
-        className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 disabled:opacity-50"
+        className="w-full bg-[#5B4FFF] text-white py-3 rounded-xl font-semibold hover:bg-[#4A3EE0] disabled:opacity-50 transition-all shadow-md shadow-[#5B4FFF]/25 hover:shadow-[#5B4FFF]/40 active:scale-[0.98]"
       >
         {loading ? 'Inscribiendo...' : 'Inscribirse al curso'}
       </button>
-      {error && <p className="text-red-600 text-sm mt-2 text-center">{error}</p>}
+      {error && (
+        <p className="text-red-600 text-sm mt-2 text-center bg-red-50 border border-red-100 rounded-lg px-3 py-2">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

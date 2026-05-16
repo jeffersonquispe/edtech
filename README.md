@@ -1,156 +1,213 @@
-# EdTech - Plataforma de Cursos Online
+# EdTech — Plataforma de Cursos Online
 
-Plataforma estilo Udemy/Gumroad construida con Next.js 14 + Supabase.
+Plataforma completa estilo **Udemy/Gumroad** construida con **Next.js 16**, **TypeScript**, **Tailwind CSS 4**, y **Supabase**.
 
-## Stack
+## ⚠️ Requirements
 
-- **Backend**: Next.js 14 (Route Handlers API-only)
-- **Frontend**: Next.js 14 + Tailwind CSS + shadcn/ui
-- **DB/Auth**: Supabase (Postgres + RLS + Auth)
+- **Node.js 20.9.0+** (required for Next.js 16+)
+- npm, yarn, or pnpm
+- Supabase account (free tier works)
 
-## Estructura
+## 🎯 Features
 
-```
-edtech/
-├── backend/       # API en puerto 3001
-├── frontend/      # UI en puerto 3000
-├── CLAUDE.md      # Especificación del proyecto
-└── README.md
-```
+### 👨‍🎓 For Students
+- 📚 Browse published course catalog
+- 🔑 Sign up and enroll in courses
+- 📖 Watch embedded videos + read markdown content
+- 📊 Dashboard with enrolled courses
+- 🔐 Secure authentication
 
-## Fase 0 - Completada ✓
-
-- [x] Git init
-- [x] Creación de backend/ y frontend/ como proyectos Next.js independientes
-- [x] Instalación de Supabase (@supabase/ssr @supabase/supabase-js)
-- [x] Archivos .env.example
-- [x] Estructura de carpetas
-
-## Fase 1 - Completada ✓
-
-- [x] 6 migraciones SQL con RLS:
-  - 001_profiles.sql
-  - 002_categories.sql
-  - 003_courses.sql
-  - 004_lessons.sql
-  - 005_enrollments.sql
-  - 006_reviews.sql
-
-## Fase 2 - Completada ✓
-
-- [x] Backend utilities:
-  - lib/supabase/server.ts (cliente SSR)
-  - lib/errors.ts (mapeo Postgres → HTTP)
-- [x] 5 endpoints:
-  - GET /api/courses
-  - POST /api/courses
-  - PATCH /api/courses/[id]
-  - POST /api/courses/[id]/enroll
-  - GET /api/courses/[id]/lessons
-
-## Fase 3 - En progreso
-
-- [ ] Frontend Supabase clients (server.ts, client.ts, middleware.ts)
-- [ ] Páginas y componentes
-- [ ] Flujo de auth
+### 👨‍🏫 For Instructors
+- ✏️ Create and edit courses
+- 📝 Manage lessons (add, edit, delete)
+- 🚀 Publish/unpublish courses
+- 📈 View enrollment statistics
 
 ## ⚡ Quick Start
 
-### 1. Aplicar Migraciones
-
-✅ **Ya configuradas**: backend/.env y frontend/.env tienen Supabase URL + keys
-
-Ahora aplica las 6 migraciones SQL:
-
-**Opción A (Recomendado):**
-- Lee [SETUP_SUPABASE.md](./SETUP_SUPABASE.md)
-- Copia el SQL en Supabase Studio > SQL Editor > Run
-
-**Opción B (CLI):**
-```bash
-cd backend
-supabase db push
-```
-
-### 2. Generar Tipos TypeScript
-
-Una vez que las tablas existan:
+### 1. Install Dependencies
 
 ```bash
-cd backend
-npx supabase gen types typescript --project-id [tu-project-id] > types/database.ts
-cp types/database.ts ../frontend/types/database.ts
+# Frontend
+cd frontend
+npm install
+
+# Backend (optional)
+cd ../backend
+npm install
 ```
 
-### 3. Correr Backend
+### 2. Environment Setup
 
-```bash
-cd backend
-npm run dev
+**Frontend** (`.env.local`):
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
 ```
 
-Servidor en http://localhost:3001. Prueba:
-```bash
-curl http://localhost:3001/api/courses
+**Backend** (`.env.local`):
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```
 
-### 4. Correr Frontend
+### 3. Run Development Servers
 
-En otra terminal:
+**Frontend** (required):
 ```bash
 cd frontend
 npm run dev
 ```
+→ Opens http://localhost:3000
 
-Servidor en http://localhost:3000
+**Backend** (optional):
+```bash
+cd backend
+npm run dev
+```
+→ API at http://localhost:3001
 
----
+## 📋 Project Status
 
-## 📚 Documentación
+### ✅ Phase 0 — Setup
+- Git repository initialized
+- Monorepo structure (backend + frontend)
+- Supabase integration
 
-- **[DATA_MODEL.md](./DATA_MODEL.md)** — Diagrama y detalle de todas las tablas (6 tablas, RLS, flujos)
-- **[SETUP_SUPABASE.md](./SETUP_SUPABASE.md)** — Guía paso a paso para aplicar migraciones
-- **[CLAUDE.md](./CLAUDE.md)** — Especificación técnica del proyecto
+### ✅ Phase 1 — Database
+- 6 SQL migrations with RLS policies
+- Complete schema (profiles, categories, courses, lessons, enrollments, reviews)
+- Row-level security for authorization
 
----
+### ✅ Phase 2 — Backend API
+- 5 REST endpoints for course management
+- Supabase client utilities
+- Error handling & validation
 
-## 🛠 Tech Stack
+### ✅ Phase 3 — Frontend & UI Polish
+- ✨ **Complete visual redesign** with premium aesthetic
+- 🎨 **Distinctive design system**: Sora + DM Sans fonts, indigo accent color
+- 📚 **All pages implemented**: Home, courses, dashboard, auth, lessons
+- 🎬 **Smooth animations**: Staggered cards, hover effects, micro-interactions
+- 📱 **Responsive design**: Mobile-first, optimized for all screens
 
-| Componente | Tecnología |
-|---|---|
-| Backend API | Next.js 14 Route Handlers |
-| Frontend UI | Next.js 14 + Tailwind + shadcn/ui |
-| Database | Supabase (Postgres + RLS) |
-| Auth | Supabase Auth |
-| Deployment | (TBD) |
+**New in Phase 3:**
+- Warm cream background (`#F6F4F0`)
+- Brand indigo accent (`#5B4FFF`) on all CTAs
+- Frosted glass navbar with branded logo
+- Gradient purple hero section
+- Polished auth forms with accent stripes
+- Card hover animations & staggered fade-in
+- Better dashboards with stats & improved layouts
 
----
+## 🛠️ Tech Stack
 
-## 📂 Estructura
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | Next.js 16, React 19, TypeScript, Tailwind CSS 4 |
+| **Backend** | Next.js Route Handlers |
+| **Database** | Supabase (PostgreSQL) |
+| **Auth** | Supabase Auth |
+| **Storage** | Supabase Storage |
+| **UI** | Shadcn/ui, Lucide Icons |
+| **Styling** | Tailwind CSS 4 + custom animations |
+
+## 📂 Project Structure
 
 ```
 edtech/
-├── backend/
-│   ├── app/api/courses/          # 5 endpoints
-│   ├── lib/supabase/server.ts    # Cliente Supabase
-│   ├── lib/errors.ts             # Mapeo Postgres → HTTP
-│   └── supabase/migrations/      # 6 migraciones SQL
-├── frontend/
-│   ├── app/                      # Páginas (TBD)
-│   ├── components/               # shadcn/ui (TBD)
-│   └── lib/supabase/             # Clientes browser + server
-├── DATA_MODEL.md                 # Esquema visualmente explicado
-├── SETUP_SUPABASE.md             # Guía migraciones
-└── CLAUDE.md                      # Especificación técnica
+├── frontend/                    # Next.js 16 web app
+│   ├── app/
+│   │   ├── page.tsx            # Home (hero + course grid)
+│   │   ├── layout.tsx          # Root layout
+│   │   ├── globals.css         # Tailwind + animations
+│   │   ├── login/page.tsx      # Authentication
+│   │   ├── signup/page.tsx
+│   │   ├── courses/[id]/       # Course detail
+│   │   ├── dashboard/          # Student & instructor dashboards
+│   │   ├── learn/[courseId]/   # Lesson viewing
+│   │   └── _components/        # Navbar, buttons, etc.
+│   ├── lib/
+│   │   ├── supabase/           # Client & server clients
+│   │   └── api.ts              # API utilities
+│   └── types/database.ts       # Generated Supabase types
+│
+├── backend/                    # Next.js API (optional)
+│   └── app/api/courses/        # Endpoints
+│
+├── CLAUDE.md                   # Complete architecture docs
+├── DATA_MODEL.md               # Database schema
+├── SETUP_SUPABASE.md           # Setup guide
+└── README.md                   # This file
 ```
+
+## 📚 Documentation
+
+- **[frontend/README.md](./frontend/README.md)** — Frontend setup & design system
+- **[CLAUDE.md](./CLAUDE.md)** — Architecture, API contracts, RLS policies
+- **[DATA_MODEL.md](./DATA_MODEL.md)** — Database schema & relationships
+- **[SETUP_SUPABASE.md](./SETUP_SUPABASE.md)** — Supabase configuration
+
+## 🎨 Design System
+
+### Fonts
+- **Headings**: [Sora](https://fonts.google.com/specimen/Sora) — geometric, distinctive
+- **Body**: [DM Sans](https://fonts.google.com/specimen/DM+Sans) — clean, readable
+
+### Colors
+- **Background**: Warm cream `#F6F4F0`
+- **Brand accent**: Vibrant indigo `#5B4FFF`
+- **Text**: Deep `#141415`
+
+### Features
+- ✨ Smooth animations
+- 🎯 Hover effects & feedback
+- 🌈 Gradient accents
+- 📱 Mobile-responsive
+
+## 🔐 Authentication & Security
+
+- **Auth**: Supabase Auth (email + password)
+- **Authorization**: Row Level Security (RLS) in PostgreSQL
+- **Session**: Secure cookies (SSR-compatible)
+- **API Protection**: RLS policies enforce authorization server-side
+
+## 🚀 Next Steps
+
+- [ ] Payment integration (Stripe)
+- [ ] Course progress tracking
+- [ ] Reviews & ratings (UI)
+- [ ] Search & filtering
+- [ ] User profile settings
+- [ ] Certificates
+- [ ] Discussion forums
+
+## 📝 Development
+
+### Run Tests
+```bash
+npm run test
+```
+
+### Build for Production
+```bash
+npm run build
+npm run start
+```
+
+### Linting
+```bash
+npm run lint
+```
+
+## 🤝 Contributing
+
+See [CLAUDE.md](./CLAUDE.md) for development guidelines and project conventions.
 
 ---
 
-## 🚀 Próximas Tareas (Fase 3)
+**Built with ❤️ for EdTech learners everywhere**
 
-- [ ] Instalar shadcn/ui (requiere Node 20+)
-- [ ] Páginas: /login, /signup, /, /courses/[id], /dashboard/student, /dashboard/instructor
-- [ ] Flujo de autenticación (Supabase Auth)
-- [ ] CRUD de cursos (instructor)
-- [ ] Inscripción y visualización de lecciones (estudiante)
-- [ ] Sistema de reviews
+*Last updated: May 2026 — Phase 3 Complete ✨*
