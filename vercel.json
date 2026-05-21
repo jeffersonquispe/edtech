@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "edtech-backend",
+      "path": "backend",
+      "commandForIgnoringBuildStep": "git diff --quiet HEAD^ HEAD -- backend/ .github/workflows/"
+    },
+    {
+      "name": "edtech-frontend",
+      "path": "frontend",
+      "commandForIgnoringBuildStep": "git diff --quiet HEAD^ HEAD -- frontend/ .github/workflows/"
+    }
+  ]
+}
