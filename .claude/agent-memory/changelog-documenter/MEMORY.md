@@ -1,0 +1,4 @@
+- [EdTech Project Architecture](project_architecture.md) — Monorepo backend/frontend; 6 SQL migrations + 5 API endpoints; Fases 0-3 status
+- [Edy Voice Widget](project_edy_widget.md) — LiveKit-based AI voice assistant added in commit 98dc111; new env vars required
+- [API Authorization Pattern](project_api_auth_pattern.md) — Backend createClient supports both Bearer token and cookie auth; RLS is source of truth
+- [Trigger Fix Pattern](project_trigger_fix.md) — handle_new_user trigger requires SET search_path = public; hotfix SQL provided

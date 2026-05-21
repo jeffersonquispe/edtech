@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(export PATH=\"/c/nodejs-20:$PATH\")",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "mcp__notion__notion-fetch",
+      "mcp__notion__notion-search",
+      "WebSearch",
+      "Bash(npm install *)",
+      "Bash(npx playwright *)"
     ]
   }
 }

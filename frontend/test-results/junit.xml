@@ -1,0 +1,147 @@
+<testsuites id="" name="" tests="5" failures="0" skipped="0" errors="3" time="41.24638299999997">
+<testsuite name="enrollment.spec.ts" timestamp="2026-05-21T00:36:13.740Z" hostname="chromium" tests="5" failures="0" skipped="0" time="148.087" errors="3">
+<testcase name="Enrollment Flow › estudiante puede ver cursos publicados" classname="enrollment.spec.ts" time="30.776">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\error-context.md]]
+
+[[ATTACHMENT|enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded while setting up &quot;studentContext&quot;." type="Error">
+<![CDATA[  [chromium] › enrollment.spec.ts:6:7 › Enrollment Flow › estudiante puede ver cursos publicados ───
+
+    Test timeout of 30000ms exceeded while setting up "studentContext".
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\enrollment-Enrollment-Flow-2a72e-puede-ver-cursos-publicados-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="Enrollment Flow › estudiante puede inscribirse en un curso" classname="enrollment.spec.ts" time="37.549">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\error-context.md]]
+
+[[ATTACHMENT|enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded." type="Error">
+<![CDATA[  [chromium] › enrollment.spec.ts:18:7 › Enrollment Flow › estudiante puede inscribirse en un curso 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+       at ..\pages\base.page.ts:10
+
+       8 |
+       9 |   async goto(path: string) {
+    > 10 |     await this.page.goto(path)
+         |                     ^
+      11 |   }
+      12 |
+      13 |   async click(locator: Locator | string) {
+        at CoursesPage.goto (C:\Users\Jeff\Desktop\edtech\frontend\e2e\pages\base.page.ts:10:21)
+        at CoursesPage.goto (C:\Users\Jeff\Desktop\edtech\frontend\e2e\pages\courses.page.ts:23:17)
+        at C:\Users\Jeff\Desktop\edtech\frontend\e2e\tests\enrollment.spec.ts:23:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\enrollment-Enrollment-Flow-8ade7-ede-inscribirse-en-un-curso-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="Enrollment Flow › estudiante puede ver sus cursos inscritos en el dashboard" classname="enrollment.spec.ts" time="37.548">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\error-context.md]]
+
+[[ATTACHMENT|enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded." type="Error">
+<![CDATA[  [chromium] › enrollment.spec.ts:41:7 › Enrollment Flow › estudiante puede ver sus cursos inscritos en el dashboard 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://localhost:3000/dashboard/student", waiting until "load"
+
+
+       at ..\pages\base.page.ts:10
+
+       8 |
+       9 |   async goto(path: string) {
+    > 10 |     await this.page.goto(path)
+         |                     ^
+      11 |   }
+      12 |
+      13 |   async click(locator: Locator | string) {
+        at StudentDashboardPage.goto (C:\Users\Jeff\Desktop\edtech\frontend\e2e\pages\base.page.ts:10:21)
+        at StudentDashboardPage.goto (C:\Users\Jeff\Desktop\edtech\frontend\e2e\pages\student-dashboard.page.ts:21:17)
+        at C:\Users\Jeff\Desktop\edtech\frontend\e2e\tests\enrollment.spec.ts:48:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\enrollment-Enrollment-Flow-fe192-s-inscritos-en-el-dashboard-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="Enrollment Flow › estudiante no puede acceder a cursos sin estar inscrito" classname="enrollment.spec.ts" time="17.198">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|enrollment-Enrollment-Flow-747a6-a-cursos-sin-estar-inscrito-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Enrollment Flow › mensaje de error si intenta inscribirse sin autenticación" classname="enrollment.spec.ts" time="25.016">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|enrollment-Enrollment-Flow-89171-scribirse-sin-autenticación-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
